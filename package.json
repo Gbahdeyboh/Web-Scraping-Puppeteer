@@ -1,0 +1,23 @@
+{
+  "name": "Web-Scrapinng-Puppeteer",
+  "version": "1.0.0",
+  "description": "Sample code for scraping data off of a website in puppeteer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gbahdeyboh/Web-Scrapinng-Puppeteer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gbahdeyboh/Web-Scrapinng-Puppeteer/issues"
+  },
+  "homepage": "https://github.com/Gbahdeyboh/Web-Scrapinng-Puppeteer#readme",
+  "dependencies": {
+    "puppeteer": "^3.0.4"
+  }
+}
