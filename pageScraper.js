@@ -1,9 +1,10 @@
 const scraperObject = {
-	url: 'http://books.toscrape.com/catalogue/category/books/mystery_3/index.html',
+	url: 'http://books.toscrape.com/',
 	async scraper(browser, category){
 		let page = await browser.newPage();
 		console.log(`Navigating to ${this.url}...`);
 		await page.goto(this.url);
+		
 		// Select the category of book to be displayed
 		let selectedCategory = await page.$$eval('.side_categories > ul > li > ul > li > a', (links, _category) => {
 			// Search for the element that has the matching text
@@ -50,11 +51,9 @@ const scraperObject = {
 			for(link in urls){
 				let currentPageData = await pagePromise(urls[link]);
 				scrapedData.push(currentPageData);
-				// console.log(currentPageData);
 			}
 			// When all the data on this page is done, click the next button and start the scraping of the next page
-			// We are going to check if this button exist first, so we know if there really is a next page.
-			// const nextButton = await page.$eval('.next > a', a => a.textContent === 'next' ? 'next' : null);
+			// We are going to check if this button exist first, so we know if there really is a next page.\
 			let nextButtonExist = false;
 			try{
 				const nextButton = await page.$eval('.next > a', a => a.textContent);
@@ -68,11 +67,9 @@ const scraperObject = {
 				return scrapeCurrentPage(); // Call this function recursively
 			}
 			await page.close();
-			// await browser.close();
 			return scrapedData;
 		}
 		let data = await scrapeCurrentPage();
-		// console.log(data);
 		return data;
 	}
 }
